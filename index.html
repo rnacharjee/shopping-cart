@@ -113,6 +113,7 @@
 
 
       function minusButtonAction (id, id2,price1Num,price2Num){
+         
          text=document.getElementById(id).value;
          textNum=parseFloat(text);
          newText=textNum-1;
@@ -120,7 +121,12 @@
             document.getElementById(id).value=0;
          }else{
             document.getElementById(id).value=newText;
-         newPrice=price1Num*newText;
+         
+         if(id == "inputText1"){
+            newPrice=price1Num*newText;
+         }else{
+            newPrice=price2Num*newText;
+         }
          document.getElementById(id2).innerText=newPrice;
          }
 
@@ -128,11 +134,18 @@
 
       function plusButtonAction (id,id2, price1Num,price2Num){
          text=document.getElementById(id).value;
+         buttonID = document.getElementById(id);
+         console.log(buttonID);
          textNum=parseFloat(text);
          newText=textNum+1;
          document.getElementById(id).value=newText;
+         if(id == "inputText1"){
+            newPrice=price1Num*newText;
+         }else{
+            newPrice=price2Num*newText;
+         }
 
-         newPrice=price1*newText;
+         
          document.getElementById(id2).innerText=newPrice;
 
       }
@@ -153,7 +166,7 @@
         var newTotal=parseFloat(newSubtotal)+parseFloat(newTaxDecimal);
          document.getElementById("tax").innerText=newTaxDecimal;
          document.getElementById("totalPrice").innerText=newTotal;
-         console.log(newTotal)
+         
       }
       
 </script>
